@@ -1,4 +1,13 @@
 import subprocess
+import platform
+import os 
+
+#auto clear
+def clear_screen():
+    if platform.system() == "Windows":
+        os.system("cls")
+    else:
+        subprocess.call("clear")
 bids = {}
 bidding_finished = False
 while not bidding_finished:
