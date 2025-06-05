@@ -35,13 +35,19 @@ while not bidding_finished:
         print('please answer yes/ no')
         
 def find_highest_bidder(bidding_record):
-    highest_ammount = 0
+    if not bidding_record:  # Check kama dictionaryni tupu
+        print("No bids were placed!")
+        return
+    
+    highest_amount = 0
     winner = ""
-    for bidder in bids:
-        bid_ammount = bids[bidder]
-        if bid_ammount > highest_ammount:
-            highest_ammount = bid_ammount
+    for bidder in bidding_record:
+        bid_amount = bidding_record[bidder]
+        if bid_amount > highest_amount:
+            highest_amount = bid_amount
             winner = bidder
-    print(f"Highest bidder is {winner} with bid of Tsh{highest_ammount}")
+    
+    print(f"Highest bidder is {winner} with bid of Tsh {highest_amount}")
+
 find_highest_bidder(bids)
 
